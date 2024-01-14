@@ -1,8 +1,6 @@
-// Libs
 import React, { FC } from 'react';
 import { Navigate } from 'react-router-dom';
-import { ExactPath } from '~/utils/constants/route';
-// Shares
+import { userRoute } from '~/utils/constants/route';
 import { StorageEnum } from '~/utils/enum';
 
 type Props = {
@@ -14,7 +12,7 @@ const ProtectedRoute: FC<Props> = (props: Props) => {
   const { ComponentProtected, role } = props;
   const localRole = localStorage.getItem(StorageEnum.ACCESS_TOKEN)!;
 
-  return localRole === role ? <ComponentProtected /> : <Navigate to={ExactPath.auth.login} />;
+  return localRole === role ? <ComponentProtected /> : <Navigate to={userRoute.login} />;
 };
 
 export default ProtectedRoute;

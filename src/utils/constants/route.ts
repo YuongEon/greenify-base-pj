@@ -1,39 +1,66 @@
 import { NotFoundPage } from '~/components/common';
 import { FreeLayout, MainLayout } from '~/layouts';
-import { About, Home } from '~/pages';
+import { About, Home, LoginAdmin, LoginUser } from '~/pages';
 
 // Router && Path
-export const RouterPaths = {
-  MAIN: '/',
-  LOGIN: 'login',
-  ADMIN: 'admin',
-  PUBLIC: {
-    GROUP: 'public/groups',
-    TABLE: 'public/tables',
-  },
+export const adminRoute = {
+  base: '/admin',
+  login: '/login',
 };
 
-export const ExactPath = {
-  main: `/${RouterPaths?.ADMIN}`,
-  auth: {
-    login: `/${RouterPaths.LOGIN}`,
-  },
+export const userRoute = {
+  base: '/',
+  login: '/login',
+  home: '/home',
+  about: '/about',
 };
 
-export const publicRoutes = [
+export const publicRoutesAdmin = [
   {
     path: '*',
     component: NotFoundPage,
     layout: FreeLayout,
   },
   {
-    path: '/',
+    path: `${adminRoute.base}`,
+    component: LoginAdmin,
+    layout: FreeLayout,
+  },
+  {
+    path: `${adminRoute.base}${userRoute.login}`,
+    component: LoginAdmin,
+    layout: FreeLayout,
+  },
+];
+
+export const publicRoutesUser = [
+  {
+    path: '*',
+    component: NotFoundPage,
+    layout: FreeLayout,
+  },
+  {
+    path: `${userRoute.base}`,
     component: Home,
     layout: MainLayout,
   },
   {
-    path: '/about',
+    path: `${userRoute.base}${userRoute.login}`,
+    component: LoginUser,
+    layout: FreeLayout,
+  },
+  {
+    path: `${userRoute.base}${userRoute.home}`,
+    component: Home,
+    layout: MainLayout,
+  },
+  {
+    path: `${userRoute.base}${userRoute.about}`,
     component: About,
     layout: MainLayout,
   },
 ];
+
+export const publicRoutes = [...publicRoutesAdmin, ...publicRoutesUser];
+
+export const privateRoutes = [];
