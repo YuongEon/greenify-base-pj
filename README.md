@@ -1,3 +1,3 @@
-# RH Instant Frontend
+# Code Base Frontend
 
 Made by GreenifyVN team with ❤️
