@@ -1,5 +1,3 @@
-const icons = {
-  logo: require('./logo_fife.ico'),
-};
+const icons = {};
 
 export default icons;

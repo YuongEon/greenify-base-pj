@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './Example.module.scss';
 
 type Props = {
-  content: string;
+  content?: string;
 };
 
 const cx = classNames.bind(styles);

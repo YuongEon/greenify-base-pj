@@ -1,8 +1,10 @@
 import classNames from 'classnames/bind';
-import { Outlet } from 'react-router-dom';
-import styles from './Main.module.scss';
+import { ReactNode } from 'react';
+import styles from './Header.module.scss';
 import Header from './header/Header';
-import Sidebar from './sidebar/Sidebar';
+import { Outlet } from 'react-router-dom';
+
+type Props = {};
 
 const cx = classNames.bind(styles);
 
@@ -11,7 +13,6 @@ const Main = () => {
     <div>
       <Header />
       <div className={cx('container')}>
-        <Sidebar />
         <div className={cx('content')}>
           <Outlet />
         </div>

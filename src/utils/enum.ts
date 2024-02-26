@@ -19,3 +19,8 @@ export enum StorageEnum {
 export enum LanguageEnum {
   EN = 'en',
 }
+
+export enum ButtonTypeEnum {
+  PRIMARY = 'primary',
+  DANGER = 'danger',
+}

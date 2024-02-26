@@ -1,11 +1,12 @@
-import { NotFoundPage } from '~/components/common';
-import { FreeLayout, MainLayout } from '~/layouts';
-import { About, Home, LoginAdmin, LoginUser } from '~/pages';
+import { NotFoundPage } from '~/components';
+import { AboutUser, DashboardAdmin, HomeUser, LoginAdmin, LoginUser } from '~/pages';
+import { IRouteModel } from '../interface/common';
 
 // Router && Path
 export const adminRoute = {
   base: '/admin',
   login: '/login',
+  dashboard: '/dashboard',
 };
 
 export const userRoute = {
@@ -15,52 +16,55 @@ export const userRoute = {
   about: '/about',
 };
 
-export const publicRoutesAdmin = [
+//#region Admin Routes
+export const publicRoutesAdmin: IRouteModel[] = [
   {
     path: '*',
     component: NotFoundPage,
-    layout: FreeLayout,
   },
   {
-    path: `${adminRoute.base}`,
+    path: `${adminRoute.base}${adminRoute.login}`,
     component: LoginAdmin,
-    layout: FreeLayout,
-  },
-  {
-    path: `${adminRoute.base}${userRoute.login}`,
-    component: LoginAdmin,
-    layout: FreeLayout,
   },
 ];
 
-export const publicRoutesUser = [
+export const privateAdminRoutes: IRouteModel[] = [
+  {
+    path: `${adminRoute.base}${adminRoute.dashboard}`,
+    component: DashboardAdmin,
+    name: 'Dashboard',
+  },
+];
+//#endregion Admin Routes
+
+//#region Patient Routes
+export const publicUserRoutes: IRouteModel[] = [
   {
     path: '*',
     component: NotFoundPage,
-    layout: FreeLayout,
   },
   {
-    path: `${userRoute.base}`,
-    component: Home,
-    layout: MainLayout,
-  },
-  {
-    path: `${userRoute.base}${userRoute.login}`,
+    path: userRoute.login,
     component: LoginUser,
-    layout: FreeLayout,
-  },
-  {
-    path: `${userRoute.base}${userRoute.home}`,
-    component: Home,
-    layout: MainLayout,
-  },
-  {
-    path: `${userRoute.base}${userRoute.about}`,
-    component: About,
-    layout: MainLayout,
   },
 ];
 
-export const publicRoutes = [...publicRoutesAdmin, ...publicRoutesUser];
+export const privateUserRoutes: IRouteModel[] = [
+  {
+    path: userRoute.home,
+    component: HomeUser,
+  },
+  {
+    path: userRoute.about,
+    component: AboutUser,
+  },
+];
+//#endregion Patient Routes
+
+export const publicRoutes = [...publicRoutesAdmin, ...publicUserRoutes];
 
 export const privateRoutes = [];
+
+export const adminRouteAbsolute = {
+  dashboard: `${adminRoute.base}${adminRoute.dashboard}`,
+};

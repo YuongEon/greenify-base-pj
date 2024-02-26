@@ -1,9 +1,7 @@
-import { PropsWithChildren } from 'react';
+import { Outlet } from 'react-router-dom';
 
-type Props = {};
-
-const Free = (props: PropsWithChildren<Props>) => {
-  return <>{props.children}</>;
+const Free = () => {
+  return <Outlet />;
 };
 
 export default Free;
