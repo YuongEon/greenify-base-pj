@@ -1,0 +1,56 @@
+.sidebarLayer {
+  @apply fixed w-[280px] h-full p-3;
+}
+
+.container {
+  @apply bg-[#092341] w-full h-full rounded-2xl overflow-hidden;
+}
+
+.logo {
+  @apply flex items-center justify-center h-[60px] mb-10 text-slate-100 font-bold text-3xl uppercase pt-4;
+}
+
+.menu {
+  @apply flex flex-col gap-2;
+
+  li {
+    @apply text-gray-300/80 p-1 cursor-pointer transition-colors px-8 font-medium relative;
+
+    &:hover {
+      @apply text-[#dcd6f8];
+    }
+
+    &.active {
+      @apply text-[#dcd6f8];
+    }
+
+    &.active::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 20px solid #dcd6f8;
+      border-right: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-top: 20px solid transparent;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &.active::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: black;
+      border-radius: 50%;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+  }
+}

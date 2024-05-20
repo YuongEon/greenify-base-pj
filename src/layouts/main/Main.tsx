@@ -8,10 +8,10 @@ const cx = classNames.bind(styles);
 
 const Main = () => {
   return (
-    <div>
-      <Header />
+    <div id='mainLayout' className={cx('mainContainer')}>
+      <Sidebar />
       <div className={cx('container')}>
-        <Sidebar />
+        <Header />
         <div className={cx('content')}>
           <Outlet />
         </div>

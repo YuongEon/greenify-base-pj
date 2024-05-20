@@ -1,0 +1,35 @@
+.headerWrap {
+  @apply flex justify-between items-center bg-red-300 h-[60px] px-4 mb-4;
+}
+
+.search {
+  @apply bg-sky-300;
+}
+
+.headerRight {
+  @apply flex items-center gap-2;
+}
+
+.pipe {
+  @apply w-[2px] h-5 bg-slate-300 rounded-md mx-3;
+}
+
+.headerUserAccount {
+  @apply flex items-center gap-2 px-2;
+}
+
+.username {
+  @apply bg-sky-300;
+}
+
+.avatar {
+  @apply bg-sky-300 rounded-full w-10 h-10 flex justify-center items-center;
+}
+
+.icon {
+  @apply bg-sky-300;
+}
+
+.dropDownBtn {
+  @apply bg-sky-300 w-4 h-4 rounded-full
+}

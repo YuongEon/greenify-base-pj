@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { adminRoute, privateAdminRoutes, privateUserRoutes, publicRoutes, userRoute } from './utils/constants/route';
+// import 'antd/dist/antd';
 import { FreeLayout, HeaderLayout, MainLayout } from './layouts';
 
 type Props = {};

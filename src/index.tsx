@@ -6,6 +6,7 @@ import store from '~/redux/store';
 import reportWebVitals from './reportWebVitals';
 import { GlobalStyles } from './components';
 
+
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
